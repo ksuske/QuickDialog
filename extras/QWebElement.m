@@ -52,7 +52,8 @@
 	if (_html) {
 		QWebViewController *webController = [[QWebViewController alloc] initWithHTML:_html];
         webController.title = self.title;
-		[controller displayViewController:webController];
+		[controller displayViewController:webController withPresentationMode:self.presentationMode];
+        [tableView deselectRowAtIndexPath:path animated:NO];
 	}
 	else {
 		if ([_url hasPrefix:@"http"]) {
