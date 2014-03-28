@@ -36,6 +36,7 @@ static const int kCellMinimumLabelWidth = 40;
         imageSize = self.imageView.frame.size;
 
     CGSize sizeWithMargin = self.contentView.bounds.size;
+    sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMinimumLabelWidth/2, sizeWithMargin.height-kCellMarginDouble);
 
     if (_labelingPolicy == QLabelingPolicyTrimTitle)
     {

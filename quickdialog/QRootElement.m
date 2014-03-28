@@ -189,7 +189,7 @@
             if (e == previous) {
                 return previousElement;
             }
-            else if ([e isKindOfClass:[QEntryElement class]] && [(QEntryElement *)e canTakeFocus]) {
+            else if (([e isKindOfClass:[QEntryElement class]] && [(QEntryElement *)e canTakeFocus]) || ([e isKindOfClass:[QMLEntryElement class]] && [(QMLEntryElement *)e canTakeFocus])) {
                 previousElement = (QEntryElement *)e;
             }
         }
@@ -205,7 +205,7 @@
             if (e == element) {
                 foundSelf = YES;
             }
-            else if (foundSelf && [e isKindOfClass:[QEntryElement class]] && [(QEntryElement *)e canTakeFocus]) {
+            else if (foundSelf && (([e isKindOfClass:[QEntryElement class]] && [(QEntryElement *)e canTakeFocus]) || ([e isKindOfClass:[QMLEntryElement class]] && [(QMLEntryElement *)e canTakeFocus]))) {
                 return (QEntryElement *) e;
             }
         }
