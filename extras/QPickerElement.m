@@ -31,6 +31,23 @@
     return self;
 }
 
+- (void)setItems:(NSArray *)items
+{
+    NSMutableArray *array = [NSMutableArray array];
+    
+    for (int i = 0; i < items.count; i++) {
+        NSMutableArray *itemsTranslated = [(NSArray *)[items objectAtIndex:i] mutableCopy];
+        
+        for (int j = 0; j < itemsTranslated.count; j++) {
+            [itemsTranslated replaceObjectAtIndex:j withObject:QTranslate([itemsTranslated objectAtIndex:j])];
+        }
+        
+        [array addObject:itemsTranslated];
+    }
+    
+    _items = array;
+}
+
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller
 {
     QPickerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:QPickerTableViewCellIdentifier];
