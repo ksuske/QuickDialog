@@ -30,11 +30,6 @@ static const int kCellMinimumLabelWidth = 80;
     [super layoutSubviews];
 
     [self layoutSubviewsInsideBounds:self.contentView.bounds];
-
-<<<<<<< HEAD
-    CGSize sizeWithMargin = self.contentView.bounds.size;
-    sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMinimumLabelWidth/2, sizeWithMargin.height-kCellMarginDouble);
-=======
 }
 
 - (void)layoutSubviewsInsideBounds:(CGRect)bounds
@@ -44,7 +39,6 @@ static const int kCellMinimumLabelWidth = 80;
     if (self.imageView.image!=nil){
         sizeWithMargin = CGSizeMake(sizeWithMargin.width - self.imageView.image.size.width - QCellMarginDouble, sizeWithMargin.height);
     }
->>>>>>> FETCH_HEAD
 
     if (_labelingPolicy == QLabelingPolicyTrimTitle)
     {

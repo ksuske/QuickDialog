@@ -166,11 +166,7 @@
 - (UIImage *)createBackArrowImage
 {
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-<<<<<<< HEAD
-	CGContextRef context = CGBitmapContextCreate(nil,27,27,8,0, colorSpace,kCGBitmapAlphaInfoMask & kCGImageAlphaPremultipliedLast);
-=======
 	CGContextRef context = CGBitmapContextCreate(nil,27,27,8,0, colorSpace,(CGBitmapInfo)kCGImageAlphaPremultipliedLast);
->>>>>>> FETCH_HEAD
 	CFRelease(colorSpace);
    CGColorRef fillColor = [[UIColor blackColor] CGColor];
    CGContextSetFillColor(context, (CGFloat *) CGColorGetComponents(fillColor));
@@ -191,11 +187,7 @@
 - (UIImage *)createForwardArrowImage
 {
    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-<<<<<<< HEAD
-   CGContextRef context = CGBitmapContextCreate(nil,27,27,8,0, colorSpace,kCGBitmapAlphaInfoMask & kCGImageAlphaPremultipliedLast);
-=======
    CGContextRef context = CGBitmapContextCreate(nil,27,27,8,0, colorSpace,(CGBitmapInfo)kCGImageAlphaPremultipliedLast);
->>>>>>> FETCH_HEAD
    CFRelease(colorSpace);
    CGColorRef fillColor = [[UIColor blackColor] CGColor];
    CGContextSetFillColor(context, (CGFloat *) CGColorGetComponents(fillColor));

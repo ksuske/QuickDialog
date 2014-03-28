@@ -62,7 +62,6 @@
     [cell applyAppearanceForElement:self];
     _controller = controller;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    //cell.textView.enabled = self.enabled;
     cell.textView.userInteractionEnabled = self.enabled;
     cell.textView.textAlignment = self.appearance.entryAlignment;
     cell.imageView.image = self.image;
@@ -81,7 +80,7 @@
 
 - (void) fieldDidEndEditing
 {
-    [self handleElementSelected:_controller];
+    [self handleEditingChanged];
 }
 
 - (void)fetchValueIntoObject:(id)obj {
@@ -96,11 +95,7 @@
 }
 
 - (void)handleEditingChanged:(QEntryTableViewCell *)cell
-{/*
-    if(self.delegate && [self.delegate respondsToSelector:@selector(QEntryEditingChangedForElement:andCell:)]){
-        //[self.delegate QEntryEditingChangedForElement:self andCell:cell];
-    }
-*/
+{
     [self handleEditingChanged];
 }
 

@@ -49,7 +49,6 @@
     _textView.contentInset = UIEdgeInsetsMake(-10,-5,0,0);
     _textView.delegate = self;
     _textView.autoresizingMask = ( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-    //[_textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     [self.contentView addSubview:_textView];
     [self setNeedsLayout];
 }
@@ -197,25 +196,6 @@
     }
     return YES;
 }
-/*
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-
-    QEntryElement *element = [_entryElement.parentSection.rootElement findElementToFocusOnAfter:_entryElement];
-    if (element!=nil){
-        UITableViewCell *cell = [_quickformTableView cellForElement:element];
-        if (cell!=nil){
-            [cell becomeFirstResponder];
-        }
-    }  else {
-        [_textView resignFirstResponder];
-    }
-    
-    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldReturnForElement:andCell:)]){
-        return [_entryElement.delegate QEntryShouldReturnForElement:_entryElement andCell:self];
-    }
-    
-    return YES;
-}*/
 
 - (void)handleActionBarPreviousNext:(UISegmentedControl *)control {
 
@@ -262,10 +242,6 @@
     [self endEditing:NO];
     [_textView resignFirstResponder];
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-
-    /*if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryMustReturnForElement:andCell:)]){
-        [_entryElement.delegate QEntryMustReturnForElement:_entryElement andCell:self];
-    }*/
 
     return NO;
 }
