@@ -31,19 +31,29 @@
 
     [loading addSubview:activity];
 
-    [self.quickDialogTableView addSubview:loading];
-    [self.quickDialogTableView bringSubviewToFront:loading];
+    if (self.view.superview) {
+        [self.view.superview addSubview:loading];
+        [self.view.superview bringSubviewToFront:loading];
+    } else {
+        [self.view addSubview:loading];
+        [self.view bringSubviewToFront:loading];
+    }
     return loading;
 }
 
 
 - (void)loading:(BOOL)visible {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = visible;
-    UIView *loadingView = [self.quickDialogTableView viewWithTag:1123002];
+    UIView *loadingView = nil;
+    if (self.view.superview) {
+        loadingView = [self.view.superview viewWithTag:1123002];
+    } else {
+        loadingView = [self.view viewWithTag:1123002];
+    }
     if (loadingView==nil){
         loadingView = [self createLoadingView];
     }
-    loadingView.frame = CGRectMake(self.quickDialogTableView.contentOffset.x, self.quickDialogTableView.contentOffset.y, self.quickDialogTableView.bounds.size.width, self.quickDialogTableView.bounds.size.height);
+    loadingView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     self.quickDialogTableView.userInteractionEnabled = !visible;
 
     if (visible) {
